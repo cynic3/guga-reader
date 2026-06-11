@@ -1,0 +1,65 @@
+{
+  "name": "guga-reader",
+  "version": "1.0.0",
+  "description": "咕嘎阅读 - 二次元小说阅读器 🦆",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --dir",
+    "build-installer": "electron-builder --win",
+    "build-portable": "electron-builder --win portable",
+    "build-mac": "electron-builder --mac",
+    "build-linux": "electron-builder --linux"
+  },
+  "author": "GuGa Reader",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.guga.reader",
+    "productName": "咕嘎阅读",
+    "copyright": "Copyright © 2024 GuGa Reader",
+    "compression": "maximum",
+    "asar": true,
+    "asarUnpack": [],
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "style.css",
+      "app.js",
+      "main.js",
+      "preload.js",
+      "lib/**",
+      "assets/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "咕嘎阅读"
+    }
+  }
+}

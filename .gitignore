@@ -1,0 +1,26 @@
+# 依赖
+node_modules/
+
+# 打包输出
+dist/
+out/
+release/
+
+# 构建临时文件
+*.log
+*.tmp
+*.cache
+nul
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Electron builder 临时文件
+builder-debug.yml
+builder-effective-config.yaml
