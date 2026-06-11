@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🦆 咕嘎阅读
+<img src="https://gitee.com/cynicguguggaga/guga-reader/raw/master/assets/guga-duck.png" width="100" alt="咕嘎鸭">
+
+# 咕嘎阅读
 
 **本地 EPUB / TXT 电子书阅读器**
 
@@ -29,6 +31,22 @@
 | 🖼️ **图片处理** | 插图自动等比缩放到页面内，独立成页不遮挡文字 |
 | 🦆 **咕嘎鸭** | 书架界面随机游荡的小鸭子动画（纯装饰，无实际功能） |
 | 🔒 **单实例** | 重复打开时自动聚焦已有窗口，不会开多个 |
+
+---
+
+## 🖼️ 界面预览
+
+### 书页模式（双开页翻页）
+
+<img src="https://gitee.com/cynicguguggaga/guga-reader/raw/master/assets/reading-screenshot.png" width="85%" alt="书页模式">
+
+> 插图自动等比缩放、单独成页，不会被文字遮挡
+
+### 书架管理
+
+<img src="https://gitee.com/cynicguguggaga/guga-reader/raw/master/assets/bookshelf-screenshot.png" width="85%" alt="书架">
+
+> 拖拽导入、文件夹整理、批量管理，樱花花瓣飘落背景
 
 ---
 
@@ -145,6 +163,6 @@ reader/
 
 <div align="center">
 
-Made with 🦆 by cynic3
+Made with <img src="https://gitee.com/cynicguguggaga/guga-reader/raw/master/assets/guga-duck.png" width="18" alt="咕嘎鸭"> by cynic3
 
 </div>
