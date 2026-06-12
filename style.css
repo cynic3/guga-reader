@@ -1024,7 +1024,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
   display: flex; flex-direction: column;
   background: var(--reader-bg, #fef7fb);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
 }
 
@@ -1067,11 +1067,12 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 /* 页面内容 */
 .book-page-inner {
   flex: 1;
-  overflow: hidden;
+  overflow: visible;
   font-size: var(--font-size, 18px);
   line-height: var(--line-height, 1.9);
   color: var(--reader-text, #2a1f3d);
   font-family: var(--reader-font, 'Noto Serif SC', 'SimSun', serif);
+  padding-bottom: 0.5em;
 }
 
 /* 页内元素样式 */
@@ -1110,14 +1111,14 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
   letter-spacing: 2px; font-family: 'Noto Serif SC', serif;
 }
 
-/* 页码 */
+/* 页码 — flex 独立槽位，与正文物理隔离，不遮挡 */
 .book-page-num {
-  position: absolute; bottom: 12px;
-  font-size: 11px; color: var(--text-secondary);
-  opacity: 0.5; font-family: 'Noto Serif SC', serif;
+  text-align: center; padding: 3px 0 5px;
+  flex-shrink: 0;
+  font-size: 10px; color: var(--text-secondary);
+  opacity: 0.45; font-family: 'Noto Serif SC', serif;
+  line-height: 1;
 }
-.book-page-left .book-page-num { left: 50%; transform: translateX(-50%); }
-.book-page-right .book-page-num { right: 50%; transform: translateX(50%); }
 
 /* 翻页过渡动画 */
 .book-spread {
@@ -1131,9 +1132,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 /* 翻页模式下隐藏滚动内容 */
 .paginate-mode .reader-content { display: none; }
 .paginate-mode .nav-zones { display: none; }
+.paginate-mode .page-container { bottom: 30px; }
 
 .page-indicator {
-  position: fixed; bottom: calc(var(--footer-h) + 6px); left: 50%;
+  position: fixed; bottom: 8px; left: 50%;
   transform: translateX(-50%); z-index: 150;
   font-size: 11px; color: var(--text-secondary);
   background: rgba(255,255,255,0.85); padding: 2px 14px;

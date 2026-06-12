@@ -1,6 +1,6 @@
 {
   "name": "guga-reader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "咕嘎阅读 - 二次元小说阅读器 🦆",
   "main": "main.js",
   "scripts": {

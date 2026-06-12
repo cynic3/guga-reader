@@ -2270,12 +2270,13 @@ function calcPagesAsync(done) {
     var ch = state.currentBook && state.currentBook.chapters && state.currentBook.chapters[state.currentChapter];
     var isVertical = !!(ch && ch.writingMode === 'vertical-rl');
 
-    // 正确计算可用宽高：减去 #reader-body 的上下 padding
+    // 正确计算可用宽高：减去 #reader-body 的上下 padding，再减去页码指示器占用的底部空间
     var cs = getComputedStyle(body);
     var padTop = parseFloat(cs.paddingTop) || 0;
     var padBot = parseFloat(cs.paddingBottom) || 0;
+    var indicatorSpace = 30; // 页码指示器占用空间
     var vw = body.clientWidth;
-    var vh = body.clientHeight - padTop - padBot;
+    var vh = body.clientHeight - padTop - padBot - indicatorSpace;
     if (!vw || !vh) {
       console.warn('[calcPagesAsync] 尺寸为 0，延迟重试');
       setTimeout(function() { calcPagesAsync(done); }, 100);
@@ -2286,7 +2287,7 @@ function calcPagesAsync(done) {
     var padX = Math.max(18, Math.min(28, Math.round(vw * 0.028)));
     var padY = 28;
     var pageContentW = Math.floor((vw - gutter) / 2) - padX * 2;
-    var pageContentH = vh - padY * 2;
+    var pageContentH = vh - padY * 2 - 20; // -20: 底部页码槽位
     var pageLimit = isVertical ? pageContentW : pageContentH;
 
     state._pageW = pageContentW;
